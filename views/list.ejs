@@ -1,0 +1,44 @@
+   <%- include("header") -%>
+
+     <div class="box" id="heading">
+
+       <h1> <%=ListTitle%> </h1>
+
+     </div>
+
+
+      <!-- <li>Buy Food </li>
+      <li>Cook Food</li>
+      <li>Eat Food</li> -->
+      <div class="box">
+
+       <%  newListitems.forEach(function(item){  %>
+        <form action="/delete" method="post">
+          <div class="item">
+            <input type="checkbox" value="<%=item._id %>" name = "checkbox"  onChange="this.form.submit()">
+
+            <p><%= item.name %></p>
+             
+            
+          </div>
+          <input   type ="hidden"  name="listName"  value="<%=ListTitle%>" />
+        </form>
+      <%  }) %>
+
+
+        <!-- <%  for(var i=0; i<newListitems.length;i++ ){ %>
+          
+
+        <% } %> -->
+
+        <form  class="item" action="/" method="post">
+
+          <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+
+          <button type="submit" name="list" value=<%= ListTitle %> >+</button>
+
+        </form>
+
+      </div>
+
+       <%- include("footer") -%>
